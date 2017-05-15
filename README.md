@@ -31,12 +31,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * React events are named using camelCase
 * Class methods are not bound by default (best practice: bind them in the constructor)
 
+## Day 3
+
 ### More about Props
 * Props shorthand
 * Props.children
 * Typechecking with PropTypes
-
-## Day 3
 
 ### Data Fetching
 * Fetching data from the server and displaying it
