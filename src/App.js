@@ -1,66 +1,57 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import './App.css';
-import { Button } from 'react-bootstrap';
+
+import DayOneMain from './day1/Main';
+import DayTwoMain from './day2/Main';
+import DayThreeMain from './day3/Main';
+
+import showdown from 'showdown';
+import README from '../README.md';
+const README_DECODED = atob(README.replace('data:text/x-markdown;base64,', ''));
+const converter = new showdown.Converter();
+const readMeHtml = converter.makeHtml(README_DECODED);
 
 
-import Header from './Header';
-import OtherComponent from './OtherComponent';
-// TODO More import examples
+class Home extends React.Component {  
+    rawMarkup() {
+      return { __html: readMeHtml};
+    }
+    render() {
+      return <div className="readme" dangerouslySetInnerHTML={this.rawMarkup()} />;
+   }
+}
+
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      date: new Date(),
-      name: 'Emi',
-      counter: 0
-    };
-
-    this.changeName = this.changeName.bind(this);
-    this.increment = this.changeCounter.bind(this, 1);
-    this.decrement = this.changeCounter.bind(this, -1);
-  }
-
-  changeName(name) {
-    this.setState({name: name});
-  }
-
-  changeCounter(inc) {
-    console.log('before:', this.state.counter);
-    this.setState((prevState) => ({
-      counter: prevState.counter + inc
-    }));
-    this.setState((prevState) => ({
-      counter: prevState.counter + inc
-    }));
-    console.log('after:', this.state.counter);
-  }
-
-  componentDidMount() {
-    // this.timer = setInterval(() => {
-    //   this.setState({
-    //     date: new Date()
-    //   })
-    // }, 1000);
-  }
-
-  componentWillUnmount() {
-    // clearInterval(this.timer);
-  }
-
   render() {
-    console.log('render App');
     return (
-        <div className="app">
-           <h1>React playground {this.state.date.toLocaleTimeString()}</h1>
-           <Header name={this.state.name} changeName={this.changeName} isActive={true}/>
-           <OtherComponent name={this.state.name}/>
+      <Router>
 
-           <br />
-           <Button bsStyle="primary" onClick={this.increment}> + </Button>
-           {' ' + this.state.counter + ' '}
-           <Button bsStyle="primary" onClick={this.decrement}> - </Button>
+        <div className="app">
+          <ButtonToolbar>
+            <ButtonGroup bsSize="large">
+              <Button><Link to="/">Home</Link></Button>
+              <Button><Link to="/day1">Day1</Link></Button>
+              <Button><Link to="/day2">Day2</Link></Button>
+              <Button><Link to="/day3">Day3</Link></Button>
+            </ButtonGroup>
+          </ButtonToolbar>
+
+          <hr/>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/day1" component={DayOneMain}/>
+          <Route path="/day2" component={DayTwoMain}/>
+          <Route path="/day3" component={DayThreeMain}/>
         </div>
+
+      </Router>
     );
   }
 }
