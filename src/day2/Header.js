@@ -13,7 +13,6 @@ class Header extends React.Component {
     }
 
     render() {
-        console.log('render Header');
         return (
             <div>
                 <Title name={this.props.name}/>

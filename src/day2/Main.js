@@ -47,7 +47,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log('render Main');
     return (
         <main>
            <h1>React playground {this.state.date.toLocaleTimeString()}</h1>

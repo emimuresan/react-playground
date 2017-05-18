@@ -29,7 +29,13 @@ class Home extends React.Component {
 
 
 class App extends React.Component {
+
   render() {
+    let extraProps = {
+      color: 'red',
+      style: 'blue'
+    };
+
     return (
       <Router>
 
@@ -48,7 +54,12 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route path="/day1" component={DayOneMain}/>
           <Route path="/day2" component={DayTwoMain}/>
-          <Route path="/day3" component={DayThreeMain}/>
+          <Route path="/day3" render={(props) => 
+            <DayThreeMain 
+              {...props}
+              {...extraProps}
+              isLoggedIn
+              isProtected={false}/>}/>
         </div>
 
       </Router>

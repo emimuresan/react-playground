@@ -12,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Exploring React DOM updates
 
 ### Components
-* Functional and Class components
+* Functional and Class components 
 * Working with components (composition, extraction)
 * Managing data
   * props (read-only, can be considered parameter for components)
@@ -33,12 +33,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Day 3
 
-### More about Props
-* Props shorthand
-* Props.children
-* Typechecking with PropTypes
-
 ### Data Fetching
 * Fetching data from the server and displaying it
 * Conditional Rendering
 * Lists and Keys
+
+## Day 4
+
+### More about Props
+* Props shorthand
+* Props.children
+* Typechecking with PropTypes
