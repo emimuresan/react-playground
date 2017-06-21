@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from 'react-bootstrap'
+import {Button, ListGroup, ListGroupItem} from 'react-bootstrap'
 import axios from 'axios';
 
 
@@ -11,6 +11,9 @@ class Main extends React.Component {
     };
   }
 
+  /**
+   * http://stackoverflow.com/questions/27139366/why-do-the-react-docs-recommend-doing-ajax-in-componentdidmount-not-componentwi
+   */
   componentDidMount() {
     axios.get('https://api.github.com/users')
       .then((response) => {
@@ -28,26 +31,34 @@ class Main extends React.Component {
       return false;
     }
 
-    let button;
+    let conditionalButton;
     if (!this.props.isLoggedIn) {
-      button = <Button>Login</Button>;
+      conditionalButton = <Button>Login</Button>;
     } else {
-      button = <Button>Logout</Button>;
+      conditionalButton = <Button>Logout</Button>;
     }
 
     let userItems = this.state.users.map((user, index) => {
-      return <li key={user.id}>{user.login}</li>;
+      return <ListGroupItem key={user.id}>
+                <img src={user.avatar_url} alt={user.login} width="80" height="80"/> 
+                <a href={user.html_url} style={{paddingLeft: '15px'}} target="_blank">@{user.login}</a>
+            </ListGroupItem>;
     });
 
     return (
         <main>
            <h1>React playground</h1>
-           {button}
-           <p>This person is {(this.props.isLoggedIn) ? 'our user' : 'guest'}!</p>
+           <p>{(this.props.isLoggedIn) ? 'Welcome back' : 'Hello guest'}!</p>
+           {conditionalButton}
+           <hr/>
+
            {(this.state.users.length === 0) ? (
-            <div>Loading users...</div>
+            <div>Loading github users...</div>
            ) : (
-            <ul>{userItems}</ul>
+            <div>
+              <h4>Github Users</h4>
+              <ListGroup>{userItems}</ListGroup>
+            </div>
            )}
         </main>
     );
