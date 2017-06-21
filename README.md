@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+### Prerequisites
+Install [node](https://nodejs.org/en/download/) and [yarn](https://yarnpkg.com/lang/en/docs/install/) then run the following commands:
+
+```
+git clone https://github.com/ecris87/react-playground.git
+cd react-playground
+yarn install
+yarn start
+```
+
+After all that the project should be up and running at localhost:3000.
+
 ## Day 1
 
 ### Rendering
@@ -42,5 +54,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### More about Props
 * Props shorthand
-* Props.children
 * Typechecking with PropTypes
+
+### Forms in React
+* Handling Multiple Inputs
+* Controlled Components
+* Select, Textarea, Checkbox
