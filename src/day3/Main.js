@@ -47,8 +47,7 @@ class Main extends React.Component {
 
     return (
         <main>
-           <h1>React playground</h1>
-           <p>{(this.props.isLoggedIn) ? 'Welcome back' : 'Hello guest'}!</p>
+           <h2>{(this.props.isLoggedIn) ? 'Welcome back' : 'Hello guest'}!</h2>
            {conditionalButton}
            <hr/>
 

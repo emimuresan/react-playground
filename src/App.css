@@ -1,3 +1,22 @@
 .app {
   padding: 20px 50px;
 }
+
+.app__navigation button.btn {
+  padding: 0;
+}
+
+.app__navigation a {
+  display: block;
+  padding: 10px 18px;
+}
+
+.slideshow img {
+    animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0.2; }
+    to   { opacity: 1; }
+}
+

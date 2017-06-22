@@ -12,6 +12,7 @@ import DayTwoMain from './day2/Main';
 import DayThreeMain from './day3/Main';
 import DayFourMain from './day4/Main';
 import DayFiveMain from './day5/Main';
+import DaySixMain from './day6/Main';
 
 import showdown from 'showdown';
 import README from '../README.md';
@@ -43,13 +44,14 @@ class App extends React.Component {
 
         <div className="app">
           <ButtonToolbar>
-            <ButtonGroup bsSize="large">
+            <ButtonGroup bsSize="large" className="app__navigation">
               <Button><Link to="/">Home</Link></Button>
               <Button><Link to="/day1">Day1</Link></Button>
               <Button><Link to="/day2">Day2</Link></Button>
               <Button><Link to="/day3">Day3</Link></Button>
               <Button><Link to="/day4">Day4</Link></Button>
               <Button><Link to="/day5">Day5</Link></Button>
+              <Button><Link to="/day6">Day6</Link></Button>
             </ButtonGroup>
           </ButtonToolbar>
 
@@ -66,6 +68,7 @@ class App extends React.Component {
               isProtected={false}/>}/>
           <Route path="/day4" component={DayFourMain}/>
           <Route path="/day5" component={DayFiveMain}/>
+          <Route path="/day6" component={DaySixMain}/>
         </div>
 
       </Router>

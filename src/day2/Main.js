@@ -49,7 +49,7 @@ class Main extends React.Component {
   render() {
     return (
         <main>
-           <h1>React playground {this.state.date.toLocaleTimeString()}</h1>
+           <h2>Current Date {this.state.date.toLocaleTimeString()}</h2>
            <Header name={this.state.name} changeName={this.changeName} isActive={true}/>
            <Description name={this.state.name}/>
 

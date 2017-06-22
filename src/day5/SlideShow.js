@@ -19,7 +19,7 @@ class SlideShow extends Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(this.showNext, 1000);
+        this.interval = setInterval(this.showNext, 1700);
     }
 
     componentWillUnmount() {

@@ -15,7 +15,6 @@ class Main extends React.Component {
     console.log('render Main');
     return (
         <main>
-           <h1>React playground</h1>
            <Header name={this.state.name}/>
            <Description name={this.state.name}/>
         </main>
