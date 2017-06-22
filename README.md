@@ -60,3 +60,9 @@ After all that the project should be up and running at localhost:3000.
 * Handling Multiple Inputs
 * Controlled Components
 * Select, Textarea, Checkbox
+
+## Day 5
+
+### Composition vs Inheritance
+* Props.children
+* Specialized Components
