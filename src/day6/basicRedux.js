@@ -10,10 +10,10 @@ const DEFAULT_STATE = [
     {id: uId(), title: 'Principle 1', summary: 'Single source of truth: the state tree', covered: false},
     {id: uId(), title: 'Principle 2', summary: 'State is read-only', covered: false},
     {id: uId(), title: 'Principle 3', summary: 'Changes are made with pure functions (reducers)', covered: false},
-    {id: uId(), title: 'Splitting Reducers', summary: 'combineReducers()', covered: false},
     {id: uId(), title: 'The Redux Store', summary: 'createStore() / Implementing Store from Scratch', link: 'https://github.com/tayiorbeii/egghead.io_redux_course_notes/blob/master/03-Implementing_Store_from_Scratch.md', covered: false},
     {id: uId(), title: 'Store Methods', summary: 'getState(), dispatch(), and subscribe()', covered: false},
     {id: uId(), title: 'Store Middleware', summary: 'An extension point between dispatching an action, and the moment it reaches the reducer.', covered: false},
+    {id: uId(), title: 'Splitting Reducers', summary: 'combineReducers()', covered: false},
     {id: uId(), title: 'Async Flow', summary: 'Using Redux-thunk for async actions', covered: false}
 ];
 
@@ -27,16 +27,15 @@ export const COVER_TOPIC = 'COVER_TOPIC';
 
 /*
  * ACTION CREATORS
- * TODO: switch to shorthand notation
  */
 
-export function addTopic(topic) {
-  return { type: ADD_TOPIC, topic }
-}
+export const addTopic = (topic) => ({
+  type: ADD_TOPIC, topic: topic
+});
 
-export function coverTopic(topicId) {
-  return { type: COVER_TOPIC, topicId }
-}
+export const coverTopic = (topicId) => ({
+  type: COVER_TOPIC, topicId: topicId
+});
 
 
 /**
@@ -51,8 +50,8 @@ const addTopicReducer = (state, action) => {
 
 const coverTopicReducer = (state, action) => {
     return state.map((topic) => {
-        return (topic.id === action.topicId) ? Object.assign({}, topic, {covered: true}) : topic;
-    });
+        return (topic.id === action.topicId) ? {...topic, covered: true} : topic;
+    }); // => array new state
 }
 
 /**
@@ -63,9 +62,9 @@ const coverTopicReducer = (state, action) => {
 function rootReducer(state = DEFAULT_STATE, action) {
     switch (action.type) {
         case 'ADD_TOPIC':
-            return addTopicReducer(state, action)
+            return addTopicReducer(state, action);
         case 'COVER_TOPIC':
-            return coverTopicReducer(state, action)
+            return coverTopicReducer(state, action);
         default:
             return state;
     }
@@ -86,6 +85,7 @@ function rootReducer(state = DEFAULT_STATE, action) {
 /**
  * CONFIGURE STORE
  */
+
 const toastMiddleware = store => next => action => {
   if (action.error) {
     toast.create({ 
@@ -95,7 +95,7 @@ const toastMiddleware = store => next => action => {
         type: 'error'
     });
   } else {
-    toast.create({ 
+    toast.create({
         title: 'Redux',
         text: 'Dispatched action: <br/><i>' + JSON.stringify(action, undefined, 4) + '</i>', 
         timeout: 4000,

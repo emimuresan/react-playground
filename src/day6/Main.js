@@ -1,5 +1,5 @@
 import React from 'react';
-import store from './basicRedux';
+import store, { coverTopic, addTopic } from './basicRedux';
 import reduxImage from '../img/redux.png';
 import { Button, FormControl, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { uniqueId } from 'lodash';
@@ -19,15 +19,39 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    store.subscribe(() => {
+      console.log('Store state changed!');
 
+      // update local state to match Redux store state
+      this.setState({
+        topics: store.getState() 
+      });
+
+      // reset input fields
+      this.setState({
+        inputHeader: '',
+        inputText: ''
+      });
+    });
   }
 
   handleTopicClick(topicId) {
+    let action = coverTopic(topicId);
+    store.dispatch(action);
   }
 
   handleTopicSubmit(ev) {    
     ev.preventDefault();
     
+    let topic = {
+      id: uniqueId(),
+      title: 'New: ' + this.state.inputHeader,
+      summary: this.state.inputText,
+      covered: false
+    }
+    
+    let action = addTopic(topic);
+    store.dispatch(action);
   }
 
   handleInputChange(ev) {
