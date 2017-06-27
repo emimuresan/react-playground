@@ -15,6 +15,15 @@
     animation: fadein 1.5s;
 }
 
+#vanillatoasts-container {
+  bottom: 10px;
+  top: auto !important;
+}
+
+button:focus {
+    outline: none;
+}
+
 @keyframes fadein {
     from { opacity: 0.2; }
     to   { opacity: 1; }

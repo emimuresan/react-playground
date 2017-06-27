@@ -15,18 +15,18 @@ class Main extends React.Component {
    * http://stackoverflow.com/questions/27139366/why-do-the-react-docs-recommend-doing-ajax-in-componentdidmount-not-componentwi
    */
   componentDidMount() {
-    axios.get('https://api.github.com/users')
+    axios.get('https://randomuser.me/api/?nat=gb&results=30')
       .then((response) => {
         this.setState({
-          users: response.data
+          users: response.data.results
         });
-        console.log(JSON.stringify(response.data[0], undefined, 4));
+        console.log('user data:', JSON.stringify(response.data.results[0], undefined, 4));
       })
       .catch((error) => console.log(error));
   }
 
   render() {
-    console.log('Main props:', this.props);
+    //console.log('Main props:', this.props);
     if (this.props.isProtected) {
       return false;
     }
@@ -39,10 +39,13 @@ class Main extends React.Component {
     }
 
     let userItems = this.state.users.map((user, index) => {
-      return <ListGroupItem key={user.id}>
-                <img src={user.avatar_url} alt={user.login} width="80" height="80"/> 
-                <a href={user.html_url} style={{paddingLeft: '15px'}} target="_blank">@{user.login}</a>
-            </ListGroupItem>;
+      return <ListGroupItem key={user.id.value}>
+                <img src={user.picture.thumbnail} alt={user.login.username} width="48" height="48"
+                  title={`${user.name.first} ${user.name.last}`}/>
+                <div style={{paddingLeft: '15px', display: 'inline-block'}}>
+                  <a href={`mailto:${user.email}`} style={{paddingLeft: '15px'}} target="_blank">@{user.login.username}</a>
+                </div>
+             </ListGroupItem>;
     });
 
     return (
@@ -52,10 +55,10 @@ class Main extends React.Component {
            <hr/>
 
            {(this.state.users.length === 0) ? (
-            <div>Loading github users...</div>
+            <div>Loading users...</div>
            ) : (
             <div>
-              <h4>Github Users</h4>
+              <h4>Users</h4>
               <ListGroup>{userItems}</ListGroup>
             </div>
            )}

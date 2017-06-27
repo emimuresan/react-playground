@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import './App.css';
+import 'vanillatoasts/vanillatoasts.css';
 
 import DayOneMain from './day1/Main';
 import DayTwoMain from './day2/Main';
