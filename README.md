@@ -66,3 +66,23 @@ After all that the project should be up and running at localhost:3000.
 ### Composition vs Inheritance
 * Props.children
 * Specialized Components
+
+## Day 6
+
+### Redux
+* Redux Principles: 
+  * Single source of truth: the state tree
+  * State is read-only
+  * Changes are made with pure functions (reducers)
+* The Redux store: createStore()
+* Store Methods: getState(), dispatch(), and subscribe()
+* Store middleware
+* Splitting reducers: combineReducers()
+
+## Day 7
+
+### React-Redux
+* Lifting state up
+* Introducing Redux
+
+
