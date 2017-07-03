@@ -3,7 +3,7 @@ import {Table} from 'react-bootstrap';
 import Avatar from './Avatar';
 import {capitalize} from 'lodash';
 import {connect} from 'react-redux';
-import {fetchUsers} from './advancedRedux';
+import {fetchUsers} from './redux/actions';
 
 
 class UserTable extends React.Component {
@@ -20,17 +20,32 @@ class UserTable extends React.Component {
         'City',
         'State'
     ];
+
+    this.state = {
+      loading: true
+    }
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchUsers(150));
+    let fetchPromise = this.props.dispatch(fetchUsers(150));
+
+    fetchPromise.then(() => {
+      this.setState({loading: false});
+    });
   }
 
   render() {
-    console.log(' > render ' + this.constructor.name, this.props.users && this.props.users.length);
+    console.log(' > render ' + this.constructor.name +
+      ', users: ' + (this.props.users && this.props.users.length) + 
+      ', loading: ', this.state.loading);
+
+    if (this.state.loading) {
+      return <p>Loading Users...</p>;
+    }
+    
 
     return (
-      <Table bordered condensed hover>
+      <Table condensed hover>
         <thead>
           <tr>
             {this.renderTableHeaders()}
@@ -45,7 +60,13 @@ class UserTable extends React.Component {
 
   renderTableRows() {
     if (!this.props.users) {
-      return null;
+      return (
+        <tr>
+          <td colSpan={this.tableHeaders.length} style={{textAlign: 'center', paddingTop: '30px'}}>
+            <span>NO USERS</span>
+          </td>
+        </tr>
+      );
     }
     
     return this.props.users.map((user, index) => {

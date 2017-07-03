@@ -16,7 +16,7 @@ import DayFiveMain from './day5/Main';
 import DaySixMain from './day6/Main';
 import DaySevenMain from './day7/Main';
 
-import store from './day7/advancedRedux';
+import store from './day7/redux/store';
 import {Provider} from 'react-redux';
 
 import showdown from 'showdown';

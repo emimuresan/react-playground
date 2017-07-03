@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+//import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware  from 'redux-thunk';
 import toast from 'vanillatoasts';
 import { uniqueId as uId } from 'lodash';
@@ -112,8 +112,8 @@ const toastMiddleware = store => next => action => {
 //   }
 // }
 
-const store = createStore(rootReducer, composeWithDevTools(
+const store = createStore(rootReducer, 
   applyMiddleware(thunkMiddleware, toastMiddleware)
-));
+);
 
 export default store;

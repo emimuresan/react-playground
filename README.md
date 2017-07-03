@@ -83,6 +83,7 @@ After all that the project should be up and running at localhost:3000.
 
 ### React-Redux
 * Lifting state up
-* Introducing Redux
+* Introducing Redux (with react-redux)
+* Async Flow (with redux-thunk)
 
 
