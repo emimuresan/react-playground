@@ -16,6 +16,9 @@ import DayFiveMain from './day5/Main';
 import DaySixMain from './day6/Main';
 import DaySevenMain from './day7/Main';
 
+import store from './day7/advancedRedux';
+import {Provider} from 'react-redux';
+
 import showdown from 'showdown';
 import README from '../README.md';
 const README_DECODED = atob(README.replace('data:text/x-markdown;base64,', ''));
@@ -42,7 +45,8 @@ class App extends React.Component {
     };
 
     return (
-      <Router>
+      <Provider store={store}>
+        <Router>
 
         <div className="app">
           <ButtonToolbar>
@@ -75,7 +79,8 @@ class App extends React.Component {
           <Route path="/day7" component={DaySevenMain}/>
         </div>
 
-      </Router>
+        </Router>
+      </Provider>
     );
   }
 }

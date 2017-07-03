@@ -2,6 +2,8 @@ import React from 'react';
 import {Table} from 'react-bootstrap';
 import Avatar from './Avatar';
 import {capitalize} from 'lodash';
+import {connect} from 'react-redux';
+import {fetchUsers} from './advancedRedux';
 
 
 class UserTable extends React.Component {
@@ -9,6 +11,19 @@ class UserTable extends React.Component {
     super(props);
     this.renderTableHeaders = this.renderTableHeaders.bind(this);
     this.renderTableRows = this.renderTableRows.bind(this);
+
+    this.tableHeaders = [
+        '#', 
+        'Avatar',
+        'First Name',
+        'Last Name',
+        'City',
+        'State'
+    ];
+  }
+
+  componentDidMount() {
+    this.props.dispatch(fetchUsers(150));
   }
 
   render() {
@@ -48,14 +63,14 @@ class UserTable extends React.Component {
   }
 
   renderTableHeaders() {
-    if (!this.props.tableHeaders) {
-      return null;
-    }
-
-    return this.props.tableHeaders.map((header, index) => {
+    return this.tableHeaders.map((header, index) => {
       return <th key={index}>{header}</th>;
     });
   }
 }
 
-export default UserTable;
+const mapStateToProps = (storeState) => ({
+    users: storeState.users
+});
+
+export default connect(mapStateToProps)(UserTable);

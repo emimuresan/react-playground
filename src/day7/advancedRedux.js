@@ -1,10 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware  from 'redux-thunk';
+import axios from 'axios';
+import api from './api';
 
 
 const DEFAULT_STATE = {
-    users: null
+    users: []
 }
 
 
@@ -12,6 +14,7 @@ const DEFAULT_STATE = {
  * ACTION TYPES
  */ 
 export const SET_USERS = 'SET_USERS';
+export const FETCH_USERS = 'FETCH_USERS';
 
 
 /*
@@ -22,12 +25,24 @@ export const setUsers = (users) => ({
   type: SET_USERS, users: users
 });
 
+export const fetchUsers = (nrUsers) => {
+    // this is called by Redux
+    return function(dispatch, getState, api) {
+        return axios.get(api.USERS + '?nat=us&results=' + nrUsers)
+            .then((response) => {
+                dispatch(setUsers(response.data.results));
+                //console.log('user data:', JSON.stringify(response.data.results[0], undefined, 4));
+            })
+            .catch((error) => console.log(error));
+    }
+}
+
 
 /**
  * REDUCERS
  */ 
 const setUsersReducer = (state, action) => {
-    
+    return Object.assign({}, state, {users: action.users});
 }
 
 
@@ -50,7 +65,7 @@ function rootReducer(state = DEFAULT_STATE, action) {
  */
 
 const store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware.withExtraArgument(api))
 ));
 
 export default store;
