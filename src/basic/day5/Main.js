@@ -1,9 +1,9 @@
 import React from 'react';
 import SlideShow from './SlideShow';
-import pic1 from '../img/221.jpeg';
-import pic2 from '../img/233.jpeg';
-import pic3 from '../img/377.jpeg';
-import pic4 from '../img/434.jpeg';
+import pic1 from '../../img/221.jpeg';
+import pic2 from '../../img/233.jpeg';
+import pic3 from '../../img/377.jpeg';
+import pic4 from '../../img/434.jpeg';
 import Image from './Image';
 
 

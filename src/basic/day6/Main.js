@@ -1,6 +1,6 @@
 import React from 'react';
 import store, { coverTopic, addTopic } from './basicRedux';
-import reduxImage from '../img/redux.png';
+import reduxImage from '../../img/redux.png';
 import { Button, FormControl, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { uniqueId } from 'lodash';
 
