@@ -15,6 +15,7 @@ import DayFourMain from './day4/Main';
 import DayFiveMain from './day5/Main';
 import DaySixMain from './day6/Main';
 import DaySevenMain from './day7/Main';
+import QuizMain from './dquiz/Main';
 
 import store from './day7/redux/store';
 import {Provider} from 'react-redux';
@@ -59,6 +60,7 @@ class App extends React.Component {
               <Button><Link to="/day5">Day5</Link></Button>
               <Button><Link to="/day6">Day6</Link></Button>
               <Button><Link to="/day7">Day7</Link></Button>
+              <Button><Link to="/quiz">Quiz</Link></Button>
             </ButtonGroup>
           </ButtonToolbar>
 
@@ -77,6 +79,7 @@ class App extends React.Component {
           <Route path="/day5" component={DayFiveMain}/>
           <Route path="/day6" component={DaySixMain}/>
           <Route path="/day7" component={DaySevenMain}/>
+          <Route path="/quiz" component={QuizMain}/>
         </div>
 
         </Router>
