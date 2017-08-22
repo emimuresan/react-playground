@@ -1,37 +1,24 @@
 import React, {Component} from 'react';
 import { Button } from 'react-bootstrap';
-import faker from 'faker';
+import Form from './Form'
 
 class Main extends Component {
     constructor() {
       super();
       this.state = {
-        counter: 0,
-        users: [{id: 1, name: 'Gabriel'}, {id: 2, name: 'Ronaldo'}, {id: 3, name: 'Neymar'}, {id: 4, name: 'Simona Halep'}]
+        counter: 0
       };
 
       this.increment = this.changeCounter.bind(this, 1);
       this.decrement = this.changeCounter.bind(this, -1);
-      this.addUser = this.addUser.bind(this);
     }
 
     changeCounter(inc) {
-      // implement
-    }
-
-    addUser() {
-      // implement
+      // Homework: implement a way to increment or decrement by 2 (with 2 setState calls)
     }
 
     render() {
       console.log('render', this.state);
-      
-      const userItems = this.state.users.map((user, index) => {
-        return (
-        <li key={user.id}>
-          {user.name}
-        </li>);
-      });
 
       return (
         <div className="main">
@@ -42,9 +29,8 @@ class Main extends Component {
           <span style={{padding: '0 10px'}}>{this.state.counter}</span>
           <Button bsStyle="primary" onClick={this.decrement}> - </Button>
 
-          <h3>List Example</h3>
-          <ul>{userItems}</ul>
-          <Button bsStyle="primary" onClick={this.addUser}>Add Random User</Button>
+          <h3>Form Example</h3>
+          <Form/>
 
           <hr/>
           <h3>Quiz</h3>

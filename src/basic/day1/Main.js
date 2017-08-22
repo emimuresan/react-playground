@@ -4,8 +4,8 @@ import Description from './Description';
 
 
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: 'Dana Scully'
     };

@@ -31,6 +31,10 @@
   padding-bottom: 20px;
 }
 
+.list-item {
+  padding: 5px 0 10px 0;
+}
+
 .slideshow img {
     animation: fadein 1.5s;
 }

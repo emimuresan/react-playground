@@ -3,10 +3,7 @@ import React from 'react';
 import Title from './Title';
 
 class Header extends React.Component {
-    constructor() {
-        super();
-        this.escapedText = 'some text with some html: <br/>';
-    }
+    escapedText = 'Text';
 
     reversedText(text) {
         return text.split('').reverse().join('');
