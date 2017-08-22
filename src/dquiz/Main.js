@@ -4,12 +4,14 @@ import Q1 from './Q1';
 import Q2 from './Q2';
 import Q3 from './Q3';
 import Q4 from './Q4';
+import Q5 from './Q5';
 
 const responses = {
     q1Response: 'It is not recommended because browser plugins can inject stuff into <body>',
     q2Response: 'The set state is async, we should use the callback method to verify the state',
     q3Response: 'shouldComponentUpdate method has two parameters, nextProps and nextState, nextState should be used to check the updated state',
-    q4Response: 'forceUpdate method ignores shouldComponentUpdate'
+    q4Response: 'forceUpdate method ignores shouldComponentUpdate',
+    q5Response: 'Both setState and ajax call happens after the render which means the Name component is already initialized and the state is not updated'
 };
 
 class Main extends React.Component {
@@ -22,7 +24,7 @@ class Main extends React.Component {
     handleButtonClick(ev) {
         this.setState({
             selectedQuiz: ev.target.value
-        })
+        });
     }
 
     render() {
@@ -35,6 +37,7 @@ class Main extends React.Component {
                     <Button value="2" onClick={this.handleButtonClick}>Q2</Button>
                     <Button value="3" onClick={this.handleButtonClick}>Q3</Button>
                     <Button value="4" onClick={this.handleButtonClick}>Q4</Button>
+                    <Button value="5" onClick={this.handleButtonClick}>Q5</Button>
                 </ButtonGroup>
                 {this.renderQuizContent()}
             </main>
@@ -51,6 +54,8 @@ class Main extends React.Component {
                 return <Q3 explanation={responses.q3Response}/>;
             case "4":
                 return <Q4 explanation={responses.q4Response}/>;
+            case "5":
+                return <Q5 explanation={responses.q5Response}/>;
 
             default:
                 return null;
