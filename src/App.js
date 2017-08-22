@@ -20,6 +20,7 @@ import ADayTwoMain from './advanced/day2/Main';
 import ADayThreeMain from './advanced/day3/Main';
 import ADayFourMain from './advanced/day4/Main';
 import ADayFiveMain from './advanced/day5/Main';
+import QuizMain from './dquiz/Main';
 
 import store from './basic/day7/redux/store';
 import {Provider} from 'react-redux';

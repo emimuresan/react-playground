@@ -45,7 +45,6 @@ class Q4Question extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('Next state', nextState);
         if (nextState.counter > 5) {
             return false;
         }
@@ -62,11 +61,9 @@ class Q4Question extends React.Component {
             }, () => {
                 if (this.state.counter < 10) {
                     if (this.state.counter === 8) {
-                        console.log('In');
                         this.forceUpdate();
                         // incrementCounter();
                     } else {
-                        console.log('Out');
                         incrementCounter();
                     }
                 }
