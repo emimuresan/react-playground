@@ -20,6 +20,7 @@ import ADayTwoMain from './advanced/day2/Main';
 import ADayThreeMain from './advanced/day3/Main';
 import ADayFourMain from './advanced/day4/Main';
 import ADayFiveMain from './advanced/day5/Main';
+import QuizMain from './dquiz/Main';
 
 import store from './basic/day7/redux/store';
 import {Provider} from 'react-redux';
@@ -61,7 +62,7 @@ class App extends React.Component {
           <Route exact path="/" component={Home}/>
           <Route path="/basic/day1" component={DayOneMain}/>
           <Route path="/basic/day2" component={DayTwoMain}/>
-          <Route path="/basic/day3" render={(props) => 
+          <Route path="/basic/day3" render={(props) =>
             <DayThreeMain 
               {...props}
               {...extraProps}
@@ -77,6 +78,8 @@ class App extends React.Component {
           <Route path="/advanced/day3" component={ADayThreeMain}/>
           <Route path="/advanced/day4" component={ADayFourMain}/>
           <Route path="/advanced/day5" component={ADayFiveMain}/>
+
+          <Route path="/quiz" component={QuizMain}/>
         </div>
 
         </Router>
