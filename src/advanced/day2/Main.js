@@ -49,7 +49,7 @@ class Main extends Component {
 
           <ul>
             {this.state.users.map((user, index) => {
-              return (<ListItem {...user} />);
+              return (<ListItem key={user.id} {...user} />); // Remove key in order to demo effects
             })}
           </ul>
 

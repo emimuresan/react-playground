@@ -4,7 +4,7 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: ''
+            firstName: this.props.firstName
         };
     
         this.handleChange = this.handleChange.bind(this);
