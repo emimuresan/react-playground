@@ -21,6 +21,8 @@ import ADayTwoMain from './advanced/day2/Main';
 import ADayThreeMain from './advanced/day3/Main';
 import ADayFourMain from './advanced/day4/Main';
 import ADayFiveMain from './advanced/day5/Main';
+import ComHoc from './advanced/comhoc/Main';
+
 import QuizMain from './dquiz/Main';
 
 import store from './basic/day7/redux/store';
@@ -81,6 +83,7 @@ class App extends React.Component {
           <Route path="/advanced/day5" component={ADayFiveMain}/>
 
           <Route path="/quiz" component={QuizMain}/>
+          <Route path="/comhoc" component={ComHoc}/>
         </div>
 
         </Router>
