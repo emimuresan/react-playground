@@ -44,9 +44,15 @@ class Home extends React.Component {
    }
 }
 
+class Home2 extends React.Component {  
+    render() {
+      return <h2>Home 2</h2>;
+   }
+}
+
 
 class App extends React.Component {
-
+  isLoggedIn = true
   render() {
     let extraProps = {
       color: 'red',
@@ -76,11 +82,19 @@ class App extends React.Component {
           <Route path="/basic/day6" component={DaySixMain}/>
           <Route path="/basic/day7" component={DaySevenMain}/>
 
-          <Route path="/advanced/day1" component={ADayOneMain}/>
-          <Route path="/advanced/day2" component={ADayTwoMain}/>
-          <Route path="/advanced/day3" component={ADayThreeMain}/>
-          <Route path="/advanced/day4" component={ADayFourMain}/>
-          <Route path="/advanced/day5" component={ADayFiveMain}/>
+          <Route path="/advanced" component={AppAdvanced} />
+          {/*
+          <Route path="/advanced"> // render, component, or nothing for children
+            <div>
+              <h2>Common header</h2>
+              <Route path='/advanced/day1' component={DayOneMain} />
+              <Route path='/advanced/day2' component={DayTwoMain} />
+              <Route path='/advanced/day3' component={DayThreeMain} />
+              <Route path='/advanced/day4' component={DayFourMain} />
+              <Route path='/advanced/day5' component={DayFiveMain} />
+            </div>
+          </Route>
+          */}
 
           <Route path="/quiz" component={QuizMain}/>
           <Route path="/comhoc" component={ComHoc}/>

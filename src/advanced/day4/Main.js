@@ -25,7 +25,7 @@ const Main  = (props) => {
       <div>
         <h3>Routing and Redux</h3>
 
-        <Link to="/advanced/day4/redux-topics">show topics</Link>
+        <Link to={`${match.url}/redux-topics`}>show topics</Link>
 
         {/** 
         * here's a nested Route, match.url helps us make a relative path 
