@@ -6,6 +6,7 @@ import {
 import './App.css';
 import 'vanillatoasts/vanillatoasts.css';
 import AppHeader from './AppHeader';
+import AppAdvanced from './AppAdvanced';
 
 import DayOneMain from './basic/day1/Main';
 import DayTwoMain from './basic/day2/Main';
