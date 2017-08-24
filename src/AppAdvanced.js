@@ -7,9 +7,9 @@ import DayFourMain from './advanced/day4/Main';
 import DayFiveMain from './advanced/day5/Main';
 
 // when the url matches `/advanced` this component renders
-const AppAdvanced  = ({ match }) => (
+const AppAdvanced = ({ match }) => (
     <div>
-      <h2>Common header</h2>
+      <h2>Common Header: Advanced Workshop</h2>
       {/** 
       * here we have nested Routes, match.url helps us make a relative path 
       */}

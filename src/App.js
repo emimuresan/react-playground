@@ -7,22 +7,8 @@ import './App.css';
 import 'vanillatoasts/vanillatoasts.css';
 import AppHeader from './AppHeader';
 import AppAdvanced from './AppAdvanced';
-
-import DayOneMain from './basic/day1/Main';
-import DayTwoMain from './basic/day2/Main';
-import DayThreeMain from './basic/day3/Main';
-import DayFourMain from './basic/day4/Main';
-import DayFiveMain from './basic/day5/Main';
-import DaySixMain from './basic/day6/Main';
-import DaySevenMain from './basic/day7/Main';
-
-import ADayOneMain from './advanced/day1/Main';
-import ADayTwoMain from './advanced/day2/Main';
-import ADayThreeMain from './advanced/day3/Main';
-import ADayFourMain from './advanced/day4/Main';
-import ADayFiveMain from './advanced/day5/Main';
+import AppBasic from './AppBasic';
 import ComHoc from './advanced/comhoc/Main';
-
 import QuizMain from './dquiz/Main';
 
 import store from './basic/day7/redux/store';
@@ -44,21 +30,11 @@ class Home extends React.Component {
    }
 }
 
-class Home2 extends React.Component {  
-    render() {
-      return <h2>Home 2</h2>;
-   }
-}
-
 
 class App extends React.Component {
   isLoggedIn = true
+  
   render() {
-    let extraProps = {
-      color: 'red',
-      style: 'blue'
-    };
-
     return (
       <Provider store={store}>
         <Router>
@@ -69,19 +45,8 @@ class App extends React.Component {
           <hr/>
 
           <Route exact path="/" component={Home}/>
-          <Route path="/basic/day1" component={DayOneMain}/>
-          <Route path="/basic/day2" component={DayTwoMain}/>
-          <Route path="/basic/day3" render={(props) =>
-            <DayThreeMain 
-              {...props}
-              {...extraProps}
-              isLoggedIn
-              isProtected={false}/>}/>
-          <Route path="/basic/day4" component={DayFourMain}/>
-          <Route path="/basic/day5" component={DayFiveMain}/>
-          <Route path="/basic/day6" component={DaySixMain}/>
-          <Route path="/basic/day7" component={DaySevenMain}/>
 
+          <Route path="/basic" component={AppBasic} />
           <Route path="/advanced" component={AppAdvanced} />
           {/*
           <Route path="/advanced"> // render, component, or nothing for children
