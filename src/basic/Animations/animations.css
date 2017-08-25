@@ -1,0 +1,140 @@
+.animation-container {
+    text-align: center;
+}
+
+.slideshow-animated {
+    text-align: center;
+}
+
+.slideshow__images {
+    width: 458px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slideshow {
+    display: inline-block;
+    text-align: center;
+}
+
+.slideshow__images img {
+    vertical-align: top;
+    display: inline-block;
+}
+
+/*slide animation*/
+.slide-enter {
+    transform: translate(100%);
+}
+.slide-enter.slide-enter-active {
+    transform: translate(0%);
+    transition: transform 1000ms ease-in-out;
+}
+.slide-exit {
+    transform: translate(-100%);
+}
+.slide-exit.slide-exit-active {
+    transform: translate(-200%);
+    transition: transform 1000ms ease-in-out;
+}
+
+/*scale*/
+.scale-appear, .blur-appear, .rotate-appear, .translate-appear{
+    filter: grayscale(100%);
+    transition: all 1000ms ease-in-out;
+}
+
+.scale-appear.scale-appear-active, .blur-appear.blur-appear-active, .rotate-appear.rotate-appear-active, .translate-appear.translate-appear-active{
+    filter: grayscale(0);
+}
+.scale-enter {
+    transform: scale(1);
+}
+
+.scale-enter.scale-enter-active {
+    transform: scale(1);
+    transition: all 500ms ease-in-out;
+}
+
+.scale-exit {
+    transform: scale(1);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.scale-exit.scale-exit-active {
+    transform: scale(1.2);
+    opacity: .01;
+    transition: all 500ms ease-in-out;
+}
+
+.blur-enter {
+    transform: scale(1);
+}
+
+/*blur*/
+.blur-enter.blur-enter-active {
+    transform: scale(1);
+    transition: all 500ms ease-in-out;
+}
+
+.blur-exit {
+    transform: scale(1);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.blur-exit.blur-exit-active {
+    filter: blur(40px);
+    opacity: .01;
+    transition: all 500ms ease-in-out;
+}
+
+.rotate-enter {
+    filter: hue-rotate(-180deg);
+    opacity: .01;
+}
+
+.rotate-enter.rotate-enter-active {
+    filter: hue-rotate(0deg);
+    opacity: 1;
+    transition: all 500ms ease-in-out;
+}
+
+.rotate-exit {
+    filter: hue-rotate(0deg);
+    opacity: 1;
+}
+
+.rotate-exit.rotate-exit-active {
+    filter: hue-rotate(180deg);
+    opacity: .01;
+    transition: all 500ms ease-in-out;
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 2500ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+    position: absolute;
+    left: 0;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 2500ms ease-in;
+}

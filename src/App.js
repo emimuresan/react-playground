@@ -10,6 +10,7 @@ import AppAdvanced from './AppAdvanced';
 import AppBasic from './AppBasic';
 import ComHoc from './advanced/comhoc/Main';
 import QuizMain from './dquiz/Main';
+import AnimationsMain from './basic/Animations/Main';
 
 import store from './basic/day7/redux/store';
 import {Provider} from 'react-redux';
@@ -63,6 +64,7 @@ class App extends React.Component {
 
           <Route path="/quiz" component={QuizMain}/>
           <Route path="/comhoc" component={ComHoc}/>
+          <Route path="/animations" component={AnimationsMain}/>
         </div>
 
         </Router>
