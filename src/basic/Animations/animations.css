@@ -31,20 +31,20 @@
 }
 .slide-enter.slide-enter-active {
     transform: translate(0%);
-    transition: transform 1000ms ease-in-out;
+    transition: transform 1500ms ease-in-out;
 }
 .slide-exit {
     transform: translate(-100%);
 }
 .slide-exit.slide-exit-active {
     transform: translate(-200%);
-    transition: transform 1000ms ease-in-out;
+    transition: transform 1500ms ease-in-out;
 }
 
 /*scale*/
 .scale-appear, .blur-appear, .rotate-appear, .translate-appear{
     filter: grayscale(100%);
-    transition: all 1000ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .scale-appear.scale-appear-active, .blur-appear.blur-appear-active, .rotate-appear.rotate-appear-active, .translate-appear.translate-appear-active{
@@ -56,7 +56,7 @@
 
 .scale-enter.scale-enter-active {
     transform: scale(1);
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .scale-exit {
@@ -70,7 +70,7 @@
 .scale-exit.scale-exit-active {
     transform: scale(1.2);
     opacity: .01;
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .blur-enter {
@@ -80,7 +80,7 @@
 /*blur*/
 .blur-enter.blur-enter-active {
     transform: scale(1);
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .blur-exit {
@@ -94,9 +94,10 @@
 .blur-exit.blur-exit-active {
     filter: blur(40px);
     opacity: .01;
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
+/*rotate*/
 .rotate-enter {
     filter: hue-rotate(-180deg);
     opacity: .01;
@@ -105,7 +106,7 @@
 .rotate-enter.rotate-enter-active {
     filter: hue-rotate(0deg);
     opacity: 1;
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .rotate-exit {
@@ -116,7 +117,7 @@
 .rotate-exit.rotate-exit-active {
     filter: hue-rotate(180deg);
     opacity: .01;
-    transition: all 500ms ease-in-out;
+    transition: all 1500ms ease-in-out;
 }
 
 .fade-enter {
@@ -125,10 +126,10 @@
 
 .fade-enter.fade-enter-active {
     opacity: 1;
-    transition: opacity 2500ms ease-in;
+    transition: opacity 1500ms ease-in;
 }
 
-.fade-exit {
+.animation-container .fade-exit {
     opacity: 1;
     position: absolute;
     left: 0;
@@ -136,5 +137,5 @@
 
 .fade-exit.fade-exit-active {
     opacity: 0.01;
-    transition: opacity 2500ms ease-in;
+    transition: opacity 1500ms ease-in;
 }

@@ -49,9 +49,9 @@ class AnimatedSlider extends Component {
             <div className="slideshow-animated">
                 <h4 style={commonStyles}>{this.props.name}</h4>
                 <TransitionGroup className="slideshow__images">
-                    <CSSTransition classNames={TRANSITION.SLIDE}
+                    <CSSTransition classNames={TRANSITION.SCALE}
                                    key={this.state.current}
-                                   timeout={{enter: 2500, exit: 2500}}>
+                                   timeout={{enter: 1500, exit: 1500}}>
                         {childrenArray[this.state.current]}
                     </CSSTransition>
                 </TransitionGroup>
